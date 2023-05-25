@@ -7,8 +7,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 @Data
-@EqualsAndHashCode
 @Embeddable
 public class ProdutoPedidoPK  implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -19,5 +20,16 @@ public class ProdutoPedidoPK  implements Serializable {
     @JoinColumn(name = "produto_id")
     private Produto produto;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProdutoPedidoPK that)) return false;
+        return Objects.equals(pedido, that.pedido) && Objects.equals(produto, that.produto);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pedido, produto);
+    }
 
 }

@@ -18,25 +18,23 @@ public class Pedido implements Serializable {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private LocalDate dataCad;
+    private LocalDate dataCad = LocalDate.now();
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    private Double valorTotal;
 
     @OneToMany(mappedBy = "id.pedido")
     private Set<ProdutosPedido> produtosPedido = new HashSet<>();
 
 
-    public Pedido(Integer id, LocalDate dataCad, Cliente cliente, Double valorTotal) {
+    public Pedido(Integer id, LocalDate dataCad, Cliente cliente) {
         this.id = id;
-        this.dataCad = (dataCad == null) ? LocalDate.now() : dataCad;
+        this.dataCad = (dataCad==null? LocalDate.now(): dataCad);
         this.cliente = cliente;
-        this.valorTotal = valorTotal;
-    }
 
+    }
     public Pedido() {
     }
 }

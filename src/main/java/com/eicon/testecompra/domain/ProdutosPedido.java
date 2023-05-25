@@ -20,17 +20,17 @@ public class ProdutosPedido implements Serializable {
 
     private Double desconto;
     private Integer quantidade;
-    private Double preco;
+    private Double valorTotal;
 
     public ProdutosPedido() {
     }
 
-    public ProdutosPedido(Pedido pedido,Produto produto, Double desconto, Integer quantidade, Double preco) {
+    public ProdutosPedido(Pedido pedido,Produto produto, Double desconto, Integer quantidade, Double valorTotal) {
         this.id.setPedido(pedido);
         this.id.setProduto(produto);
         this.desconto = desconto;
         this.quantidade = quantidade;
-        this.preco = preco;
+        this.valorTotal = valorTotal;
     }
 
     @JsonIgnore
