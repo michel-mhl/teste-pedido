@@ -23,7 +23,7 @@ public class Produto implements Serializable {
     private Double valor;
 
     @OneToMany(mappedBy = "id.produto")
-    @JsonIgnore
+  //  @JsonIgnore
     private Set<ProdutosPedido> produtosPedidos = new HashSet<>();
 
     public Produto() {

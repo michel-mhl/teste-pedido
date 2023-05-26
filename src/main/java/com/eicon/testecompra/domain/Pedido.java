@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,10 +19,10 @@ public class Pedido implements Serializable {
     private Integer id;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-    private LocalDate dataCad = LocalDate.now();
+    private LocalDateTime dataCad = LocalDateTime.now();
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente.id")
     private Cliente cliente;
 
 
@@ -29,9 +30,9 @@ public class Pedido implements Serializable {
     private Set<ProdutosPedido> produtosPedido = new HashSet<>();
 
 
-    public Pedido(Integer id, LocalDate dataCad, Cliente cliente) {
+    public Pedido(Integer id, LocalDateTime dataCad, Cliente cliente) {
         this.id = id;
-        this.dataCad = (dataCad==null? LocalDate.now(): dataCad);
+        this.dataCad = (dataCad==null? LocalDateTime.now(): dataCad);
         this.cliente = cliente;
 
     }
