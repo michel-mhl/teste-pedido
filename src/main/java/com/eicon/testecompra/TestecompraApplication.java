@@ -72,8 +72,20 @@ public class TestecompraApplication implements CommandLineRunner {
         ProdutosPedido pp4 = new ProdutosPedido(ped2, p4, 00.00, 6, 700.00);
         ProdutosPedido pp5 = new ProdutosPedido(ped2, p5, 00.00, 6, 1600.00);
         ProdutosPedido pp6 = new ProdutosPedido(ped2, p2, 00.00, 6, 150.00);
+        c1.getPedidos().addAll(Arrays.asList(ped1,ped2));
+      //  p1.getProdutosPedidos().addAll(Arrays.asList(pp1,pp2));
 
+        clienterRepoitory.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10));
+        produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+        pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
+        produtosPedidoRepository.saveAll(Arrays.asList(pp1, pp2, pp3, pp4, pp5, pp6));
 
+       List<Cliente> clientes = clienterRepoitory.findAll();
+        List<Produto> produtos = produtoRepository.findAll();
+
+        Double x = produtos.get(1).getValor();
+       int i = clientes.size();
+        System.out.println(i+" "+x);
 
      /*   p1.getProdutosPedidos().addAll(Arrays.asList(pp1,pp2));
         p2.getProdutosPedidos().addAll(Arrays.asList(pp6));
@@ -88,10 +100,7 @@ public class TestecompraApplication implements CommandLineRunner {
         ped2.getProdutosPedido().addAll(Arrays.asList(pp3,pp4,pp5));
         ped3.getProdutosPedido().addAll(Arrays.asList(pp2));*/
 
-        clienterRepoitory.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7, c8, c9, c10));
-        produtoRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
-        pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
-        produtosPedidoRepository.saveAll(Arrays.asList(pp1, pp2, pp3, pp4, pp5, pp6));
+
 /*        for(Pedido pedido: pedidos){
             System.out.println(pedido);
         }
