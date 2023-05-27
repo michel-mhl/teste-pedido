@@ -1,5 +1,6 @@
 package com.eicon.testecompra.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,10 +15,10 @@ import java.util.Objects;
 public class ProdutoPedidoPK  implements Serializable {
     private static final long serialVersionUID = 1L;
     @ManyToOne
-    @JoinColumn(name = "pedido_id")
+    @JoinColumn(name = "pedido_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Pedido pedido;
     @ManyToOne
-    @JoinColumn(name = "produto_id")
+    @JoinColumn(name = "produto_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Produto produto;
 
     @Override

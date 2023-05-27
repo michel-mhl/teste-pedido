@@ -3,12 +3,10 @@ package com.eicon.testecompra.services;
 import com.eicon.testecompra.domain.Cliente;
 import com.eicon.testecompra.repositories.ClienteRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClienteService {

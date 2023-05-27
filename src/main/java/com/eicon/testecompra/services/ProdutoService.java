@@ -1,8 +1,6 @@
 package com.eicon.testecompra.services;
 
-import com.eicon.testecompra.domain.Pedido;
 import com.eicon.testecompra.domain.Produto;
-import com.eicon.testecompra.repositories.PedidoRepository;
 import com.eicon.testecompra.repositories.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +24,5 @@ public class ProdutoService {
         List<Produto> list = produtoRepository.findAll();
         return list;
     }
+
 }

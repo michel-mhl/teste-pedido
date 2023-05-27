@@ -30,9 +30,4 @@ public class PedidoResource {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/{listId}/pedido")
-    public List<Pedido> findByList(@PathVariable Integer listId){
-        List<Pedido>result = pedidoService.findByList(listId);
-        return result;
-    }
 }
